@@ -31,7 +31,7 @@ what is available, who has what, and what is overdue.
 ### US1 – Add a book
 - Given valid `title`, `author` and `isbn`, when I POST to `/books`, then I get **201 Created**
   and the book is returned with an `id` and `available: true`.
-- Given a missing or empty `title`, `author` or `isbn`, when I POST to `/books`, then I get **422**.
+- Given a missing or empty `title`, `author` or `isbn`, when I POST to `/books`, then I get **400 Bad Request**.
 - Given an `isbn` that already exists, when I POST to `/books`, then I get **409 Conflict**.
 
 ### US2 – List and view books

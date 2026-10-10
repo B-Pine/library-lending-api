@@ -19,7 +19,7 @@ end-to-end slice.
 
 ## Task Breakdown
 **Setup (enables the sprint)**
-- [ ] Project skeleton (FastAPI app, requirements, folder structure)
+- [ ] Project skeleton (Flask, requirements, folder structure)
 - [ ] GitHub Actions CI pipeline (lint + pytest)
 
 **US1 – Add a book**
