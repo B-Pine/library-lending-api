@@ -35,3 +35,31 @@ def test_create_book_duplicate_isbn_returns_409(client):
     client.post("/books", json=VALID_BOOK)
     response = client.post("/books", json=VALID_BOOK)
     assert response.status_code == 409
+
+
+# US2 AC1: list all books (empty list if none)
+def test_list_books_empty_returns_200(client):
+    response = client.get("/books")
+    assert response.status_code == 200
+    assert response.get_json() == []
+
+
+def test_list_books_returns_added_book(client):
+    client.post("/books", json=VALID_BOOK)
+    response = client.get("/books")
+    assert response.status_code == 200
+    assert len(response.get_json()) == 1
+
+
+# US2 AC2: view one book with availability
+def test_get_book_returns_200(client):
+    client.post("/books", json=VALID_BOOK)
+    response = client.get("/books/1")
+    assert response.status_code == 200
+    assert response.get_json()["available"] is True
+
+
+# US2 AC3: unknown book gives 404
+def test_get_unknown_book_returns_404(client):
+    response = client.get("/books/99")
+    assert response.status_code == 404

@@ -36,3 +36,22 @@ def test_isbn_exists_after_adding_book():
     books.add_book({"title": "1984", "author": "George Orwell", "isbn": "123"})
     assert books.isbn_exists("123") is True
     assert books.isbn_exists("999") is False
+
+
+def test_list_books_is_empty_at_start():
+    assert books.list_books() == []
+
+
+def test_list_books_returns_added_books():
+    books.add_book({"title": "1984", "author": "George Orwell", "isbn": "123"})
+    books.add_book({"title": "Dune", "author": "Frank Herbert", "isbn": "456"})
+    assert len(books.list_books()) == 2
+
+
+def test_get_book_returns_the_book():
+    books.add_book({"title": "1984", "author": "George Orwell", "isbn": "123"})
+    assert books.get_book(1)["title"] == "1984"
+
+
+def test_get_book_unknown_id_returns_none():
+    assert books.get_book(99) is None
