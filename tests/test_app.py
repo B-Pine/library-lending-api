@@ -7,5 +7,6 @@ def test_home_returns_welcome_message():
     response = client.get("/")
 
     assert response.status_code == 200
-    assert response.get_json()["message"] == ""
-    "Welcome to the Library Lending API"
+    assert response.get_json()["message"] == (
+        "Welcome to the Library Lending API"
+    )
