@@ -25,5 +25,18 @@ def create_book():
     return jsonify(book), 201
 
 
+@app.route("/books", methods=["GET"])
+def get_all_books():
+    return jsonify(books.list_books()), 200
+
+
+@app.route("/books/<int:book_id>", methods=["GET"])
+def get_one_book(book_id):
+    book = books.get_book(book_id)
+    if book is None:
+        return jsonify({"error": "Book not found"}), 404
+    return jsonify(book), 200
+
+
 if __name__ == "__main__":
     app.run(debug=True)
