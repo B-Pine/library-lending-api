@@ -36,3 +36,13 @@ def add_book(data):
     }
     storage.books[book_id] = book
     return book
+
+
+def list_books():
+    """Return all books as a list."""
+    return list(storage.books.values())
+
+
+def get_book(book_id):
+    """Return the book with this id, or None if it doesn't exist."""
+    return storage.books.get(book_id)
