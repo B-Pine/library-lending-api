@@ -1,4 +1,8 @@
-VALID_BOOK = {"title": "1984", "author": "George Orwell", "isbn": "9780451524935"}
+VALID_BOOK = {
+    "title": "1984",
+    "author": "George Orwell",
+    "isbn": "9780451524935",
+}
 
 
 # US1 AC1: valid book is created

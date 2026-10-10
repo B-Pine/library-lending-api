@@ -24,10 +24,10 @@ end-to-end slice.
 - [x] Branch protection on main (ruleset) and PR template
 
 **US1 – Add a book**
-- [ ] Book model and in-memory storage
-- [ ] POST /books endpoint with validation
-- [ ] Duplicate ISBN check (409)
-- [ ] Tests for all acceptance criteria
+- [x] Book model and in-memory storage
+- [x] POST /books endpoint with validation
+- [x] Duplicate ISBN check (409)
+- [x] Tests for all acceptance criteria
 
 **US2 – List and view books**
 - [ ] GET /books and GET /books/{id}

@@ -2,7 +2,11 @@ from library import books
 
 
 def test_valid_data_has_no_error():
-    data = {"title": "1984", "author": "George Orwell", "isbn": "9780451524935"}
+    data = {
+        "title": "1984",
+        "author": "George Orwell",
+        "isbn": "9780451524935",
+    }
     assert books.validate_book_data(data) is None
 
 
