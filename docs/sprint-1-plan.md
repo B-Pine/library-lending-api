@@ -19,14 +19,15 @@ end-to-end slice.
 
 ## Task Breakdown
 **Setup (enables the sprint)**
-- [ ] Project skeleton (Flask, requirements, folder structure)
-- [ ] GitHub Actions CI pipeline (lint + pytest)
+- [x] Project skeleton (Flask app, requirements, folder structure)
+- [x] GitHub Actions CI pipeline (lint + pytest)
+- [x] Branch protection on main (ruleset) and PR template
 
 **US1 – Add a book**
-- [ ] Book model and in-memory storage
-- [ ] POST /books endpoint with validation
-- [ ] Duplicate ISBN check (409)
-- [ ] Tests for all acceptance criteria
+- [x] Book model and in-memory storage
+- [x] POST /books endpoint with validation
+- [x] Duplicate ISBN check (409)
+- [x] Tests for all acceptance criteria
 
 **US2 – List and view books**
 - [ ] GET /books and GET /books/{id}
@@ -43,3 +44,5 @@ end-to-end slice.
 - Data is stored **in memory** for now (lost on restart). This is acceptable for the prototype;
   a database can be a future backlog item.
 - One record = one physical copy of a book.
+- Code is split into modules: `app.py` handles HTTP only, `library/` holds the logic and data.
+  This keeps logic testable without the web layer.
