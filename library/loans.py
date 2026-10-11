@@ -55,3 +55,13 @@ def return_book(loan):
     book = storage.books[loan["book_id"]]
     book["available"] = True
     return loan
+
+
+def find_overdue_loans():
+    """Return loans that are not returned and whose due date has passed."""
+    today = get_today().isoformat()
+    overdue = []
+    for loan in storage.loans.values():
+        if loan["returned_on"] is None and loan["due_date"] < today:
+            overdue.append(loan)
+    return overdue
