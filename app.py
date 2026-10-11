@@ -70,5 +70,10 @@ def return_loan(loan_id):
     return jsonify(loan), 200
 
 
+@app.route("/loans/overdue", methods=["GET"])
+def get_overdue_loans():
+    return jsonify(loans.find_overdue_loans()), 200
+
+
 if __name__ == "__main__":
     app.run(debug=True)

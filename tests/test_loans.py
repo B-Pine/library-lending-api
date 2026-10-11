@@ -97,6 +97,6 @@ def test_returned_late_loan_is_not_overdue(monkeypatch):
     set_today(monkeypatch, 2026, 1, 1)
     loan = loans.borrow_book(add_sample_book(), "Aline")   # due 2026-01-15
     set_today(monkeypatch, 2026, 1, 18)
-    loans.return_book(loan)                                # returned 3 days late
+    loans.return_book(loan)                           # returned 3 days late
     set_today(monkeypatch, 2026, 1, 20)
     assert loans.find_overdue_loans() == []
