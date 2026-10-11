@@ -57,5 +57,18 @@ def create_loan():
     return jsonify(loan), 201
 
 
+@app.route("/loans/<int:load_id>/returns", methods=["POST"])
+def return_loan(loan_id):
+    loan = loans.get_loan(loan_id=loan_id)
+    if loan is None:
+        return jsonify({"error": "loan not found"}), 404
+
+    if loan["returned_on"] is not None:
+        return jsonify({"error": "This loan has already been returned"}), 409
+
+    loan = loans.return_book(loan)
+    return jsonify(loan)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
