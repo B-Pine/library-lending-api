@@ -1,9 +1,30 @@
+import traceback
+
 from flask import Flask, jsonify, request
+from werkzeug.exceptions import HTTPException
 
 from library import books, loans
 
 app = Flask(__name__)
 APP_VERSION = "1.0.0"
+
+
+@app.after_request
+def log_request(response):
+    print(f"{request.method} {request.path} {response.status_code}")
+    return response
+
+
+@app.errorhandler(HTTPException)
+def handle_http_error(error):
+    return jsonify({"error": error.name}), error.code
+
+
+@app.errorhandler(Exception)
+def handle_unexpected_error(error):
+    print(f"ERROR: unhandled error: {error}")
+    traceback.print_exception(error)
+    return jsonify({"error": "Internal server error"}), 500
 
 
 @app.route("/")
