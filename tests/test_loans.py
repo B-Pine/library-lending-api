@@ -9,6 +9,13 @@ def add_sample_book():
     )
 
 
+def set_today(monkeypatch, year, month, day):
+    """Make loan logic believe today is the given date for this test."""
+    def fake_today():
+        return date(year, month, day)
+    monkeypatch.setattr(loans, "get_today", fake_today)
+
+
 def test_valid_loan_data_has_no_error():
     data = {"book_id": 1, "borrower_name": "Aline"}
     assert loans.validate_loan_data(data) is None
@@ -59,3 +66,10 @@ def test_return_makes_book_available_again():
     loan = loans.borrow_book(book, "Aline")
     loans.return_book(loan)
     assert books.get_book(1)["available"] is True
+
+
+def test_borrow_uses_controlled_date(monkeypatch):
+    set_today(monkeypatch, 2026, 1, 1)
+    loan = loans.borrow_book(add_sample_book(), "Aline")
+    assert loan["borrowed_on"] == "2026-01-01"
+    assert loan["due_date"] == "2026-01-15"
