@@ -25,5 +25,5 @@ jobs:
       - name: Check code style
         run: flake8 app.py library tests
 
-      - name: Run tests
-        run: python -m pytest -v
+      - name: Run tests with coverage
+        run: python -m pytest -v --cov=app --cov=library --cov-report=term-missing --cov-fail-under=90
