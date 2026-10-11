@@ -28,7 +28,7 @@ real. US7 (Search) and US8 (Members) stay in the backlog as lower-priority "Coul
 
 ## Task Breakdown
 **Retro improvements**
-- [ ] Add coverage report to CI with a 90% minimum (Improvement 1)
+- [x] Add coverage report to CI with a 90% minimum (Improvement 1)
 
 **US4 – Return a book**
 - [ ] Return logic: set `returned_on`, make the book available again
