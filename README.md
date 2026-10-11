@@ -7,3 +7,4 @@
 | GET    | /books/{id} | View one book            |
 | POST   | /loans      | Borrow a book            |
 | POST   | /loans/{id}/return | Return a borrowed book |
+| GET    | /loans/overdue     | List overdue loans     |

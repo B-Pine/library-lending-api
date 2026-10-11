@@ -37,10 +37,10 @@ real. US7 (Search) and US8 (Members) stay in the backlog as lower-priority "Coul
 - [x] Tests
 
 **US5 – See overdue loans**
-- [ ] Make "today's date" controllable in tests (Improvement 2)
-- [ ] Overdue logic: not returned and due date before today
-- [ ] GET /loans/overdue endpoint
-- [ ] Tests, including "returned late is not overdue"
+- [x] Make "today's date" controllable in tests (Improvement 2)
+- [x] Overdue logic: not returned and due date before today
+- [x] GET /loans/overdue endpoint
+- [x] Tests, including "returned late is not overdue"
 
 **US6 – Health endpoint and logging**
 - [ ] GET /health returning status and app version
