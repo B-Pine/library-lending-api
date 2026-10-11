@@ -43,6 +43,8 @@ what is available, who has what, and what is overdue.
 ### US3 – Borrow a book
 - Given an available book, when I POST to `/loans` with `book_id` and `borrower_name`, then I
   get **201** and a loan with `borrowed_on` = today and `due_date` = today + 14 days.
+- Given `book_id` or `borrower_name` is missing or invalid, when I POST to `/loans`, then I get
+  **400 Bad Request**. *(Added during Sprint 1 refinement.)*
 - After borrowing, the book shows `available: false`.
 - Given the book is already on loan, when I try to borrow it, then I get **409 Conflict**.
 - Given the book does not exist, when I try to borrow it, then I get **404**.
