@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 
-from library import books
+from library import books, loans
 
 app = Flask(__name__)
 
@@ -36,6 +36,25 @@ def get_one_book(book_id):
     if book is None:
         return jsonify({"error": "Book not found"}), 404
     return jsonify(book), 200
+
+
+@app.route("/loans", methods=["POST"])
+def create_loan():
+    data = request.get_json()
+
+    error = loans.validate_loan_data(data)
+    if error:
+        return jsonify({"error": error}), 400
+
+    book = books.get_book(data['book_id'])
+    if book is None:
+        return jsonify({"error": "Book not found"}), 404
+
+    if not book["available"]:
+        return jsonify({"error": "Book is already on loan"}), 409
+
+    loan = loans.borrow_book(book, data["borrower_name"])
+    return jsonify(loan), 201
 
 
 if __name__ == "__main__":
