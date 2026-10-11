@@ -3,6 +3,8 @@
 **Sprint Goal:** A librarian can add books, see what is available, and lend a book out, with
 every change automatically tested in CI.
 
+**Status:** ✅ Completed. All 7 points delivered (see `sprint-1-review.md`).
+
 **Capacity:** ~7 story points (first sprint, no velocity history yet, so kept conservative).
 
 ## Selected Stories
@@ -30,15 +32,16 @@ end-to-end slice.
 - [x] Tests for all acceptance criteria
 
 **US2 – List and view books**
-- [ ] GET /books and GET /books/{id}
-- [ ] 404 handling
-- [ ] Tests
+- [x] GET /books and GET /books/{id}
+- [x] 404 handling
+- [x] Tests
 
 **US3 – Borrow a book**
-- [ ] Loan model, POST /loans
-- [ ] Due date = today + 14 days, mark book unavailable
-- [ ] 404 / 409 error cases
-- [ ] Tests
+- [x] Loan model, POST /loans
+- [x] Due date = today + 14 days, mark book unavailable
+- [x] 404 / 409 error cases
+- [x] Validation for missing or invalid loan data (400) *(added during the sprint)*
+- [x] Tests
 
 ## Risks / Assumptions
 - Data is stored **in memory** for now (lost on restart). This is acceptable for the prototype;
