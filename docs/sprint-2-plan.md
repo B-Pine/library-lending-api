@@ -43,10 +43,10 @@ real. US7 (Search) and US8 (Members) stay in the backlog as lower-priority "Coul
 - [x] Tests, including "returned late is not overdue"
 
 **US6 – Health endpoint and logging**
-- [ ] GET /health returning status and app version
-- [ ] Log every request: method, path, status code, duration
-- [ ] JSON error responses for 404 and 500, with unhandled errors logged (Improvement 4)
-- [ ] Tests
+- [x] GET /health returning status and app version
+- [x] Log every request: method, path, status code, duration
+- [x] JSON error responses for 404 and 500, with unhandled errors logged (Improvement 4)
+- [x] Tests
 
 ## Risks / Assumptions
 - Logging and error handling are new areas for me, so US6 may take longer than its 2 points
