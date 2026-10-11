@@ -6,3 +6,4 @@
 | GET    | /books      | List all books           |
 | GET    | /books/{id} | View one book            |
 | POST   | /loans      | Borrow a book            |
+| POST   | /loans/{id}/return | Return a borrowed book |
