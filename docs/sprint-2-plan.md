@@ -4,6 +4,8 @@
 loans), and the service can be monitored through a health endpoint, request logs and
 consistent error responses.
 
+**Status:** ✅ Completed. All 7 points delivered (see `sprint-2-review.md`).
+
 **Capacity:** 7 story points, based on Sprint 1 velocity (7 points planned, 7 delivered).
 
 ## Selected Stories
