@@ -37,3 +37,16 @@ def borrow_book(book, borrower_name):
     storage.loans[loan_id] = loan
     book["available"] = False
     return loan
+
+
+def get_loan(loan_id):
+    """Return the loan with this id, or None if it doesn't exist."""
+    return storage.loans.get(loan_id)
+
+
+def return_book(loan):
+    """Mark the loan as returned and make the book available again."""
+    loan["returned_on"] = date.today().isoformat()
+    book = storage.books[loan["book_id"]]
+    book["available"] = True
+    return loan

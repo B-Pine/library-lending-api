@@ -31,10 +31,10 @@ real. US7 (Search) and US8 (Members) stay in the backlog as lower-priority "Coul
 - [x] Add coverage report to CI with a 90% minimum (Improvement 1)
 
 **US4 – Return a book**
-- [ ] Return logic: set `returned_on`, make the book available again
-- [ ] POST /loans/{id}/return endpoint
-- [ ] 404 (unknown loan) / 409 (already returned) cases
-- [ ] Tests
+- [x] Return logic: set `returned_on`, make the book available again
+- [x] POST /loans/{id}/return endpoint
+- [x] 404 (unknown loan) / 409 (already returned) cases
+- [x] Tests
 
 **US5 – See overdue loans**
 - [ ] Make "today's date" controllable in tests (Improvement 2)

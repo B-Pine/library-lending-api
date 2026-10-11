@@ -41,3 +41,21 @@ def test_borrow_marks_book_unavailable():
     book = add_sample_book()
     loans.borrow_book(book, "Aline")
     assert books.get_book(1)["available"] is False
+
+
+def test_get_loan_unknown_id_returns_none():
+    assert loans.get_loan(99) is None
+
+
+def test_return_sets_returned_on_today():
+    book = add_sample_book()
+    loan = loans.borrow_book(book, "Aline")
+    loans.return_book(loan)
+    assert loan["returned_on"] == date.today().isoformat()
+
+
+def test_return_makes_book_available_again():
+    book = add_sample_book()
+    loan = loans.borrow_book(book, "Aline")
+    loans.return_book(loan)
+    assert books.get_book(1)["available"] is True
