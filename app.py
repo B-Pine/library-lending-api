@@ -3,11 +3,17 @@ from flask import Flask, jsonify, request
 from library import books, loans
 
 app = Flask(__name__)
+APP_VERSION = "1.0.0"
 
 
 @app.route("/")
 def home():
     return jsonify({"message": "Welcome to the Library Lending API"})
+
+
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({"status": "ok", "version": APP_VERSION}), 200
 
 
 @app.route("/books", methods=["POST"])
