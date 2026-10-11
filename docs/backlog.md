@@ -62,9 +62,11 @@ what is available, who has what, and what is overdue.
 
 ### US6 – Health & logging
 - When I GET `/health`, then I get **200** with `{"status": "ok"}` and the app version.
-- Every request is logged with method, path, status code and duration.
-- Unhandled errors are logged with a stack trace and the client gets a clean **500** JSON
-  response (no stack trace leaked).
+- Every request is printed to the console with method, path and status code.
+- Unhandled errors are printed to the console with a stack trace, and the client gets a clean
+  **500** JSON response (no stack trace leaked).
+  *(Simplified during Sprint 2 from structured logging with request duration to console prints:
+  the brief only requires basic logging, and simpler code is easier to maintain.)*
 
 ### US7 – Search books
 - When I GET `/books?q=orwell`, then I get books whose title or author contains the text
