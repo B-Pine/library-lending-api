@@ -11,11 +11,11 @@ def validate_loan_data(data):
         return "Request body must be a JSON object"
 
     if not isinstance(data.get("book_id"), int):
-        return "Please provide the book ID"
+        return "Please provide 'book_id' as a whole number"
 
     name = data.get("borrower_name")
     if not isinstance(name, str) or name.strip() == "":
-        return "'Please provide borrower name!"
+        return "Please provide 'borrower_name'"
 
     return None
 
