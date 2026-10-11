@@ -5,6 +5,11 @@ from library import storage
 LOAN_PERIOD_DAYS = 14
 
 
+def get_today():
+    """Return today's date. Tests replace this function to control the date."""
+    return date.today()
+
+
 def validate_loan_data(data):
     """Return an error message if the data is invalid, otherwise None."""
     if not isinstance(data, dict):
@@ -24,7 +29,7 @@ def borrow_book(book, borrower_name):
     """Create a loan for this book, mark the book unavailable,
     return the loan.
     """
-    today = date.today()
+    today = get_today()
     loan_id = len(storage.loans) + 1
     loan = {
         "id": loan_id,
@@ -46,7 +51,7 @@ def get_loan(loan_id):
 
 def return_book(loan):
     """Mark the loan as returned and make the book available again."""
-    loan["returned_on"] = date.today().isoformat()
+    loan["returned_on"] = get_today().isoformat()
     book = storage.books[loan["book_id"]]
     book["available"] = True
     return loan
