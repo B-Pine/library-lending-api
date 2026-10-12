@@ -28,6 +28,7 @@ Returning twice (409):
 Unknown loan (404):
 ![Not found](evidence/sprint-2/us4-not-found-404.png)
 
+### US5 – See overdue loans
 The overdue case cannot be shown manually without waiting 14 days, so it is demonstrated
 through tests that control today's date (Retro Improvement 2):
 ![Overdue tests](evidence/sprint-2/us5-overdue-tests.png)
@@ -45,10 +46,10 @@ Every request printed to the console:
 ## DevOps Evidence
 
 **Coverage in CI:** every pipeline run now reports test coverage and fails below 90%
-(Retro Improvement 1). Current coverage: [fill in]%.
+(Retro Improvement 1). Current coverage: 98.51%.
 ![Coverage in CI](evidence/sprint-2/coverage-ci.png)
 
-**Tests:** [fill in, about 47] tests passing across unit and integration tests.
+**Tests:** 52 tests passing across unit and integration tests.
 ![Test results](evidence/sprint-2/sprint-2-pytest-results.png)
 
 **Commit history:** small commits on feature branches, merged through Pull Requests.

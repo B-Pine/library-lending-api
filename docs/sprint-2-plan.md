@@ -46,7 +46,7 @@ real. US7 (Search) and US8 (Members) stay in the backlog as lower-priority "Coul
 
 **US6 – Health endpoint and logging**
 - [x] GET /health returning status and app version
-- [x] Log every request: method, path, status code, duration
+- [x] Print every request to the console: method, path, status code.
 - [x] JSON error responses for 404 and 500, with unhandled errors logged (Improvement 4)
 - [x] Tests
 
